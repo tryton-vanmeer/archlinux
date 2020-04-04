@@ -1,3 +1,3 @@
 # Archiso Profile
 
-Profile for custom Archiso Build
+Custom Arch Linux ISO
