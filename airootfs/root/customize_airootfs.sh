@@ -14,6 +14,8 @@ useradd -m -g users -G "adm,audio,floppy,log,network,rfkill,scanner,storage,opti
 passwd -d liveuser
 chown -R liveuser:users /home/liveuser
 
+dconf update
+
 sed -i 's/#\(PermitRootLogin \).\+/\1yes/' /etc/ssh/sshd_config
 sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
 sed -i 's/#\(Storage=\)auto/\1volatile/' /etc/systemd/journald.conf
