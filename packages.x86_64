@@ -10,7 +10,6 @@ dmraid
 dnsmasq
 dnsutils
 dosfstools
-elinks
 ethtool
 evince
 exfat-utils
@@ -37,7 +36,6 @@ ipw2200-fw
 irssi
 iwd
 jfsutils
-lftp
 linux-atm
 linux-firmware
 lsscsi
