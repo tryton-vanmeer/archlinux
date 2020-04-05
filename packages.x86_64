@@ -1,11 +1,7 @@
 arch-install-scripts
-b43-fwcutter
 broadcom-wl
 btrfs-progs
-clonezilla
 crda
-darkhttpd
-ddrescue
 dhclient
 dhcpcd
 dialog
@@ -22,7 +18,6 @@ fsarchiver
 gnu-netcat
 gpm
 gptfdisk
-grml-zsh-config
 grub
 hdparm
 ipw2100-fw
@@ -48,7 +43,6 @@ nilfs-utils
 nmap
 ntfs-3g
 ntp
-openconnect
 openssh
 openvpn
 partclone
@@ -68,8 +62,6 @@ tcpdump
 testdisk
 usb_modeswitch
 usbutils
-vi
-vim-minimal
 vpnc
 wget
 wireless-regdb
