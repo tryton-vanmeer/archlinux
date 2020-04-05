@@ -78,3 +78,10 @@ wpa_supplicant
 wvdial
 xfsprogs
 xl2tpd
+
+gdm
+gnome-terminal
+gnome-disk-utility
+nautilus
+firefox
+sudo
