@@ -13,6 +13,7 @@ chmod 700 /root
 
 # Liveuser
 useradd -m -g users -G "adm,audio,floppy,log,network,rfkill,scanner,storage,optical,power,wheel" -s /usr/bin/zsh liveuser
+passwd -d liveuser
 chown -R liveuser:users /home/liveuser
 
 sed -i 's/#\(PermitRootLogin \).\+/\1yes/' /etc/ssh/sshd_config
