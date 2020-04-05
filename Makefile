@@ -1,5 +1,7 @@
 build:
+	sudo chown -R root:root airootfs/
 	sudo ./build.sh -v
+	sudo chown -R 1000:1000 airootfs/
 clean:
 	sudo rm -r ./work ./out
 test:
