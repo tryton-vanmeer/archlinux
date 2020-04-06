@@ -1,4 +1,5 @@
 arch-install-scripts
+bat
 broadcom-wl
 btrfs-progs
 crda
@@ -14,6 +15,7 @@ ethtool
 evince
 exfat-utils
 f2fs-tools
+file-roller
 firefox
 fish
 fsarchiver
@@ -24,6 +26,7 @@ gnome-backgrounds
 gnome-calculator
 gnome-control-center
 gnome-disk-utility
+gnome-screenshot
 gnome-system-monitor
 gnome-terminal
 gnu-netcat
@@ -32,6 +35,7 @@ gpm
 gptfdisk
 grub
 hdparm
+htop
 ipw2100-fw
 ipw2200-fw
 irssi
@@ -45,10 +49,12 @@ man-db
 man-pages
 mc
 mdadm
+mesa-demos
 mtools
 nano
 nautilus
 ndisc6
+neofetch
 netctl
 networkmanager
 nfs-utils
@@ -82,5 +88,6 @@ wireless-regdb
 wireless_tools
 wpa_supplicant
 wvdial
+xdg-user-dirs
 xfsprogs
 xl2tpd
