@@ -2,7 +2,7 @@
 
 set -e -u
 
-sed -i 's/#\(en_US\.UTF-8\)/\1/' /etc/locale.gen
+sed -i 's/#\(en_CA\.UTF-8\)/\1/' /etc/locale.gen
 locale-gen
 
 ln -sf /usr/share/zoneinfo/EST5EDT /etc/localtime
