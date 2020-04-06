@@ -15,6 +15,7 @@ passwd -d liveuser
 chown -R liveuser:users /home/liveuser
 
 dconf update
+xdg-user-dirs-update
 
 sed -i 's/#\(PermitRootLogin \).\+/\1yes/' /etc/ssh/sshd_config
 sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
