@@ -3,6 +3,9 @@ gtk-theme="Adwaita-dark"
 clock-format="12h"
 clock-show-weekday=true
 
+[org/gnome/shell]
+favorite-apps=["firefox.desktop", "org.gnome.Terminal.desktop", "org.gnome.Nautilus.desktop"]
+
 [org/gnome/settings-daemon/plugins/media-keys]
 custom-keybindings=["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"]
 
