@@ -1,5 +1,7 @@
 [org/gnome/desktop/interface]
 gtk-theme="Adwaita-dark"
+clock-format="12h"
+clock-show-weekday=true
 
 [org/gnome/settings-daemon/plugins/media-keys]
 custom-keybindings=["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"]
