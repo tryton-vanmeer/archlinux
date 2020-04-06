@@ -5,7 +5,7 @@ set -e -u
 sed -i 's/#\(en_US\.UTF-8\)/\1/' /etc/locale.gen
 locale-gen
 
-ln -sf /usr/share/zoneinfo/UTC /etc/localtime
+ln -sf /usr/share/zoneinfo/EST5EDT /etc/localtime
 
 usermod -s /usr/bin/fish root
 
