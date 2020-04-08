@@ -57,12 +57,14 @@ gnome-backgrounds
 gnome-control-center
 mesa-demos
 spice-vdagent
+xdg-utils
 xdg-user-dirs
 
 # Extra GUI
 evince
 file-roller
 firefox
+firefox-ublock-origin
 gedit
 gnome-calculator
 gnome-disk-utility
