@@ -2,9 +2,9 @@
 
 set -e -u
 
-iso_name=archlinux
-iso_label="ARCH_$(date +%Y%m)"
-iso_version=$(date +%Y.%m.%d)
+img_name=archlinux
+img_label="ARCH_$(date +%Y%m)"
+img_version=$(date +%Y.%m.%d)
 install_dir=archiso
 work_dir=work
 out_dir=out
@@ -15,10 +15,10 @@ script_path=$(readlink -f "${0%/*}")
 umask 0022
 
 make_image() {
-    fallocate -l 2G "${out_dir}/${iso_name}-${iso_version}.img"
-    losetup /dev/loop0 "${out_dir}/${iso_name}-${iso_version}.img"
+    fallocate -l 2G "${out_dir}/${img_name}-${img_version}.img"
+    losetup /dev/loop0 "${out_dir}/${img_name}-${img_version}.img"
     parted /dev/loop0 mklabel gpt
-    mkfs.vfat -n "${iso_label}" /dev/loop0
+    mkfs.vfat -n "${img_label}" /dev/loop0
     mount /dev/loop0 "${img_dir}"
 }
 
@@ -87,7 +87,7 @@ make_efi() {
     cp "${work_dir}/x86_64/airootfs/usr/lib/systemd/boot/efi/systemd-bootx64.efi" "${img_dir}/EFI/boot/loader.efi"
     cp "${script_path}/efiboot/loader/loader.conf" "${img_dir}/loader/"
 
-    sed "s|%ARCHISO_LABEL%|${iso_label}|g;
+    sed "s|%ARCHimg_LABEL%|${img_label}|g;
         s|%INSTALL_DIR%|EFI/${install_dir}|g" \
        "${script_path}/efiboot/loader/entries/archiso-x86_64.conf" > "${img_dir}/loader/entries/archiso-x86_64.conf"
 }
