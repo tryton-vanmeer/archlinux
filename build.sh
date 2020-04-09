@@ -89,7 +89,7 @@ make_efi() {
 
     sed "s|%ARCHISO_LABEL%|${iso_label}|g;
         s|%INSTALL_DIR%|EFI/${install_dir}|g" \
-       "${script_path}/efiboot/loader/entries/archiso-x86_64-usb.conf" > "${img_dir}/loader/entries/archiso-x86_64.conf"
+       "${script_path}/efiboot/loader/entries/archiso-x86_64.conf" > "${img_dir}/loader/entries/archiso-x86_64.conf"
 }
 
 # Build airootfs filesystem image
