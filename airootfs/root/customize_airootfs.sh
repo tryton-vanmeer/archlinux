@@ -9,6 +9,8 @@ ln -sf /usr/share/zoneinfo/EST5EDT /etc/localtime
 
 usermod -s /usr/bin/fish root
 
+ln -sf /usr/bin/dash /usr/bin/sh
+
 # Liveuser
 useradd -m -g users -G "adm,audio,floppy,log,network,rfkill,scanner,storage,optical,power,wheel" -s /usr/bin/fish liveuser
 passwd -d liveuser
