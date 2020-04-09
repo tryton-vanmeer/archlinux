@@ -9,9 +9,7 @@ install_dir=archiso
 work_dir=work
 out_dir=out
 img_dir=img
-gpg_key=
 
-verbose="-v"
 script_path=$(readlink -f ${0%/*})
 
 umask 0022
@@ -55,15 +53,8 @@ make_setup_mkinitcpio() {
     cp /usr/lib/initcpio/install/archiso_kms ${work_dir}/x86_64/airootfs/etc/initcpio/install
     cp /usr/lib/initcpio/archiso_shutdown ${work_dir}/x86_64/airootfs/etc/initcpio
     cp ${script_path}/mkinitcpio.conf ${work_dir}/x86_64/airootfs/etc/mkinitcpio-archiso.conf
-    gnupg_fd=
-    if [[ ${gpg_key} ]]; then
-      gpg --export ${gpg_key} >${work_dir}/gpgkey
-      exec 17<>${work_dir}/gpgkey
-    fi
-    ARCHISO_GNUPG_FD=${gpg_key:+17} mkarchiso -v -w "${work_dir}/x86_64" -C "${work_dir}/pacman.conf" -D "${install_dir}" -r 'mkinitcpio -c /etc/mkinitcpio-archiso.conf -k /boot/vmlinuz-linux -g /boot/archiso.img' run
-    if [[ ${gpg_key} ]]; then
-      exec 17<&-
-    fi
+
+    mkarchiso -v -w "${work_dir}/x86_64" -C "${work_dir}/pacman.conf" -D "${install_dir}" -r 'mkinitcpio -c /etc/mkinitcpio-archiso.conf -k /boot/vmlinuz-linux -g /boot/archiso.img' run
 }
 
 # Customize installation (airootfs)
