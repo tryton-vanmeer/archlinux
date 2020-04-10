@@ -1,6 +1,4 @@
-# Archiso Profile
-
-Custom Arch Linux Image.
+# Custom Arch Linux Image
 
 Archiso with GNOME desktop and personal tweaks.
 
