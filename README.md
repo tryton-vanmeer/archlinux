@@ -30,7 +30,7 @@ Archiso with GNOME desktop and personal tweaks.
 
 ## Screenshots
 
-![Screenshot Desktop 1](assets/Screenshot_Desktop_1.png)
+![Screenshot Desktop 1](assets/screenshot-desktop-1.png)
 
 ## Building
 
