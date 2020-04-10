@@ -1,3 +1,6 @@
+[org/gnome/mutter]
+experimental-features=["scale-monitor-framebuffer"]
+
 [org/gnome/desktop/interface]
 gtk-theme="Adwaita-dark"
 clock-format="12h"
