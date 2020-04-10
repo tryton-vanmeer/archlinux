@@ -75,11 +75,11 @@ make_efi() {
     mkdir -p "${img_dir}/EFI/boot"
     mkdir -p "${img_dir}/loader/entries"
 
-    cp "${work_dir}/x86_64/airootfs/boot/archiso.img" "${img_dir}/EFI/${install_dir}/"
-    cp "${work_dir}/x86_64/airootfs/boot/vmlinuz-linux" "${img_dir}/EFI/${install_dir}/vmlinuz"
+    cp "${work_dir}/x86_64/airootfs/boot/archiso.img" "${img_dir}/${install_dir}/"
+    cp "${work_dir}/x86_64/airootfs/boot/vmlinuz-linux" "${img_dir}/${install_dir}/vmlinuz"
 
-    cp "${work_dir}/x86_64/airootfs/boot/intel-ucode.img" "${img_dir}/EFI/${install_dir}/intel_ucode.img"
-    cp "${work_dir}/x86_64/airootfs/boot/amd-ucode.img" "${img_dir}/EFI/${install_dir}/amd_ucode.img"
+    cp "${work_dir}/x86_64/airootfs/boot/intel-ucode.img" "${img_dir}/${install_dir}/intel_ucode.img"
+    cp "${work_dir}/x86_64/airootfs/boot/amd-ucode.img" "${img_dir}/${install_dir}/amd_ucode.img"
 
     cp "${work_dir}/x86_64/airootfs/usr/share/efitools/efi/PreLoader.efi" "${img_dir}/EFI/boot/bootx64.efi"
     cp "${work_dir}/x86_64/airootfs/usr/share/efitools/efi/HashTool.efi" "${img_dir}/EFI/boot/"
@@ -88,7 +88,7 @@ make_efi() {
     cp "${script_path}/efiboot/loader/loader.conf" "${img_dir}/loader/"
 
     sed "s|%ARCHimg_LABEL%|${img_label}|g;
-        s|%INSTALL_DIR%|EFI/${install_dir}|g" \
+        s|%INSTALL_DIR%|${install_dir}|g" \
        "${script_path}/efiboot/loader/entries/archiso-x86_64.conf" > "${img_dir}/loader/entries/archiso-x86_64.conf"
 }
 
