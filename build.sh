@@ -71,7 +71,7 @@ make_customize_airootfs() {
 
 # Prepare kernel/initramfs ${install_dir}/boot/
 make_efi() {
-    mkdir -p "${img_dir}/EFI/archiso"
+    mkdir -p "${img_dir}/${install_dir}/"
     mkdir -p "${img_dir}/EFI/boot"
     mkdir -p "${img_dir}/loader/entries"
 
@@ -81,25 +81,30 @@ make_efi() {
     cp "${work_dir}/x86_64/airootfs/boot/intel-ucode.img" "${img_dir}/${install_dir}/intel_ucode.img"
     cp "${work_dir}/x86_64/airootfs/boot/amd-ucode.img" "${img_dir}/${install_dir}/amd_ucode.img"
 
+    wget https://boot.netboot.xyz/ipxe/netboot.xyz.efi -O "${img_dir}/${install_dir}/netboot.efi"
+
     cp "${work_dir}/x86_64/airootfs/usr/share/efitools/efi/PreLoader.efi" "${img_dir}/EFI/boot/bootx64.efi"
     cp "${work_dir}/x86_64/airootfs/usr/share/efitools/efi/HashTool.efi" "${img_dir}/EFI/boot/"
 
     cp "${work_dir}/x86_64/airootfs/usr/lib/systemd/boot/efi/systemd-bootx64.efi" "${img_dir}/EFI/boot/loader.efi"
     cp "${script_path}/efiboot/loader/loader.conf" "${img_dir}/loader/"
 
-    sed "s|%ARCHimg_LABEL%|${img_label}|g;
+    sed "s|%ARCHISO_LABEL%|${img_label}|g;
         s|%INSTALL_DIR%|${install_dir}|g" \
        "${script_path}/efiboot/loader/entries/archiso-x86_64.conf" > "${img_dir}/loader/entries/archiso-x86_64.conf"
+    
+    sed s"|%INSTALL_DIR%|${install_dir}|g" \
+        "${script_path}/efiboot/loader/entries/netboot.conf" > "${img_dir}/loader/entries/netboot.conf"
 }
 
 # Build airootfs filesystem image
 make_prepare() {
     cp -a -l -f "${work_dir}/x86_64/airootfs" "${work_dir}"
-    mkdir -p "${img_dir}/EFI/${install_dir}/$(uname -m)/"
+    mkdir -p "${img_dir}/${install_dir}/$(uname -m)/"
 
-    mksquashfs "${work_dir}/airootfs" "${img_dir}/EFI/${install_dir}/$(uname -m)/airootfs.sfs" -noappend -comp zstd
+    mksquashfs "${work_dir}/airootfs" "${img_dir}/${install_dir}/$(uname -m)/airootfs.sfs" -noappend -comp zstd
 
-    cd "${img_dir}/EFI/${install_dir}/$(uname -m)"
+    cd "${img_dir}/${install_dir}/$(uname -m)"
     sha512sum "airootfs.sfs" > "airootfs.sha256"
     cd "${OLDPWD}"
 
