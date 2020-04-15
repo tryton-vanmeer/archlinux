@@ -40,3 +40,13 @@ Archiso with GNOME desktop and personal tweaks.
 
 This will output a `img` instead of an `iso`. This can be written to a USB in the same
 way, but will only boot on UEFI systems.
+
+## Create Boot USB with Data Partition
+
+If you have a large USB drive, it wouldn't make sense to lose that space to this small image.
+
++ Format the USB as GPT.
++ Create 2GiB FAT32 partition
++ Create a second partition that uses the rest of the space.
+    - Use whatever filesystem depending on your use case. Maybe NTFS or exFat if you need to be able to access this partition on a Windows system.
++ Mount the image file from the build process and copy the files to the first parition
