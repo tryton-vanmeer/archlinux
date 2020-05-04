@@ -49,4 +49,4 @@ If you have a large USB drive, it wouldn't make sense to lose that space to this
 + Create 2GiB FAT32 partition
 + Create a second partition that uses the rest of the space.
     - Use whatever filesystem depending on your use case. Maybe NTFS or exFat if you need to be able to access this partition on a Windows system.
-+ Mount the image file from the build process and copy the files to the first parition
++ Mount the image file from the build process and copy the files to the first partition.
